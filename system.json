@@ -1,9 +1,9 @@
 {
-  "name": "ose-dev",
-  "id": "ose-dev",
-  "title": "Old-School Essentials Development Build",
-  "description": "Play B/X OSR modules with Old-School Essentials on Foundry VTT",
-  "version": "AUTOMATICALLY REPLACED BY GITHUB WORKFLOW ACTION",
+  "name": "osric",
+  "id": "osric",
+  "title": "OSRIC",
+  "description": "Play OSRIC OSR modules with on Foundry VTT",
+  "version": "1.6.3",
   "minimumCoreVersion": "10",
   "compatibleCoreVersion": "10",
   "compatibility": {
@@ -11,23 +11,16 @@
     "verified": "10",
     "maximum": 10
   },
-  "author": "Maintained by VTT Red with 9 contributors",
+  "author": "Maintained by thevinter",
   "authors": [
     {
-      "name": "VTT RED",
-      "email": "ose-content@vtt.red",
-      "url": "https://vtt.red"
-    },
-    {
-      "name": "and 9 other contributors"
+      "name": "thevinter",
+      "email": "contact@thevinter.com",
+      "url": "blog.thevinter.com"
     }
   ],
-  "esmodules": [
-    "dist/module/ose.js"
-  ],
-  "styles": [
-    "dist/ose.css"
-  ],
+  "esmodules": ["dist/module/ose.js"],
+  "styles": ["dist/ose.css"],
   "packs": [],
   "languages": [
     {

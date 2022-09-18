@@ -37,16 +37,16 @@ export class OseActor extends Actor {
 
     // Compute AAC from AC
     if (data?.ac?.value) {
-      data.aac = { value: 19 - data.ac.value };
+      data.aac = { value: 20 - data.ac.value };
     } else if (data?.aac?.value) {
-      data.ac = { value: 19 - data.aac.value };
+      data.ac = { value: 20 - data.aac.value };
     }
 
     // Compute Thac0 from BBA
     if (data?.thac0?.value) {
-      data.thac0.bba = 19 - data.thac0.value;
+      data.thac0.bba = 20 - data.thac0.value;
     } else if (data?.thac0?.bba) {
-      data.thac0.value = 19 - data.thac0.bba;
+      data.thac0.value = 20 - data.thac0.bba;
     }
 
     super.update(data, options);
@@ -736,12 +736,12 @@ export class OseActor extends Actor {
     const actorItems = this?.items || this?.data?.data; //v9-compatibility
 
     // Compute AC
-    let baseAc = 9;
+    let baseAc = 10;
     let baseAac = 10;
     let AcShield = 0;
     let AacShield = 0;
 
-    actorData.aac.naked = baseAac + actorData.scores.dex.mod;
+    actorData.aac.naked = baseAac + actorData.scores.ac.mod;
     actorData.ac.naked = baseAc - actorData.scores.dex.mod;
     const armors = actorItems.filter((i) => i.type == "armor");
     armors.forEach((a) => {
@@ -772,15 +772,73 @@ export class OseActor extends Actor {
     }
 
     const standard = {
+      0: 0,
+    };
+
+    const toHit = {
       0: -3,
-      3: -3,
       4: -2,
       6: -1,
-      9: 0,
-      13: 1,
-      16: 2,
+      8: 0,
+      17: 1,
+    };
+
+    const toDamage = {
+      0: -1,
+      6: 0,
+      16: 1,
+      18: 2,
+    };
+
+    const encumbrance = {
+      0: -35,
+      4: -25,
+      6: -15,
+      8: 0,
+      12: 10,
+      14: 20,
+      16: 35,
+      17: 50,
+      18: 75,
+    };
+
+    const surprise = {
+      0: -3,
+      4: -2,
+      5: -1,
+      6: 0,
+      16: 1,
+      17: 2,
       18: 3,
     };
+
+    const toHitMissile = {
+      0: -3,
+      4: -2,
+      5: -1,
+      6: 0,
+      16: 1,
+      17: 2,
+      18: 3,
+    };
+
+    const bonusAC = {
+      0: 4,
+      4: 3,
+      5: 2,
+      6: 1,
+      7: 0,
+      15: -1,
+      16: -2,
+      17: -3,
+      18: -4,
+    };
+
+    actorData.ac.mod = OseActor._valueFromTable(
+      bonusAC,
+      actorData.scores.str.value
+    );
+
     actorData.scores.str.mod = OseActor._valueFromTable(
       standard,
       actorData.scores.str.value
