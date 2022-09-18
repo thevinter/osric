@@ -15,7 +15,7 @@ const rollupConfig = require("./rollup.config.js");
 /*  CONFIGURATION   */
 /********************/
 
-const name = "osric";
+const name = "ose";
 const sourceDirectory = "./src";
 const distDirectory = "./dist";
 const stylesDirectory = `scss`;
