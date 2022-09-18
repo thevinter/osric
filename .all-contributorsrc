@@ -97,8 +97,8 @@
     }
   ],
   "contributorsPerLine": 7,
-  "projectName": "ose",
-  "projectOwner": "vttred",
+  "projectName": "osric",
+  "projectOwner": "thevinter",
   "repoType": "github",
   "repoHost": "https://github.com",
   "skipCi": true

@@ -15,7 +15,7 @@ const rollupConfig = require("./rollup.config.js");
 /*  CONFIGURATION   */
 /********************/
 
-const name = "ose";
+const name = "osric";
 const sourceDirectory = "./src";
 const distDirectory = "./dist";
 const stylesDirectory = `scss`;
@@ -140,7 +140,7 @@ function getSymLinkName() {
   if (config?.symLinkName) {
     return config.symLinkName;
   } else {
-    return "ose";
+    return "osric";
   }
 }
 
